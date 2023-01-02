@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <Title>Session 23</Title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Gideon+Roman&family=Lobster&family=Lobster+Two:ital,wght@1,700&family=Pacifico&family=Praise&family=Tangerine:wght@400;700&display=swap');
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            
+            body{
+                background-color: mediumseagreen;
+                color: lightgoldenrodyellow;
+                text-align: center;
+                font-family: 'Tangerine', cursive;
+                font-size: 25px;
+            }
+
+            .Button{
+                border-radius: 10px;
+                background-color: lightgreen;
+                color: lightseagreen;
+                height: 50px;
+                width: 100px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <u>
+        <h1>Geolocation</h1>
+        <h2>28-02-22</h2>
+        </u>
+        <p id="displayLocation"></p>
+        <input class="Button" type="button" value="Get Location" onclick="geolocation()">
+    </body>
+    <script>
+        var paragraph = document.getElementById("displayLocation");
+        function geolocation()
+            {
+            if(navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showPosition)
+            }
+            else
+            {
+                paragraph.innerText="Geolocation is not available"
+            }
+        }
+
+        function showPosition(position){
+            paragraph.innerText = "Latitude = "+position.coords.latitude +
+            " Longitude = "+position.coords.longitude;
+        }
+    </script>
+</html>
